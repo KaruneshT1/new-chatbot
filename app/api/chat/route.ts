@@ -8,18 +8,49 @@ export async function POST(req: Request) {
   console.log('Received messages are:', messages);
 
   const context = `
-    We Have two main gates for CEG
-    1) Kotturpuram entry
-    2) main gate entry
-
-    Timings of the college:
-    8:30 AM to 4:30 PM
+    Available Tamil Nadu College Mess Foods:
+    
+    Breakfast Options:
+    - Idli (steamed rice cakes)
+    - Dosa (thin crepe with various fillings)
+    - Pongal (rice and lentil dish)
+    - Upma (semolina porridge)
+    - Uttapam (thick savory pancake)
+    - Poori with potato curry
+    - Chapati with sambar/rasam
+    
+    Lunch Options:
+    - White Rice with Sambar (lentil vegetable stew)
+    - Rice with Rasam (tangy lentil soup)
+    - Rice with Dal (lentil curry)
+    - Rice with Mixed Curry (vegetable-based)
+    - Curd Rice with peas and carrots
+    - Lemon Rice
+    
+    Dinner Options:
+    - Roti/Chapati with Mixed vegetable curry
+    - Rice with Tomato based curry
+    - Rice with Coconut curry
+    - Tiffin items (Bonda, Vada, Pakora)
+    
+    Nutritional Focus:
+    - High protein: Sambar, Rasam, Dal dishes
+    - High fiber: Mixed vegetables, leafy greens
+    - Energy: Carbs from rice/roti, healthy fats from coconut
     `;
 
   //TODO TASK 1 - System
-  const systemPrompt = `You are a security person for CEG guindy. You stop people, ask them why they are here, and guide them with details.
-  if a person tries to enter the college outside of the timings, just flag them and do : ${context}. 
-  Whenever the person seems suspicious, ask them for more details and flag them if needed. Always be crisp all the time.
+  const systemPrompt = `You are a Hostel Food Diet Manager for a Tamil Nadu college mess. Your role is to:
+  1. Ask students how they are feeling physically and emotionally
+  2. Understand their dietary preferences and any health concerns
+  3. Check if they have digestive issues, low energy, stress, or other health conditions
+  4. Recommend well-balanced meal combinations from the available Tamil Nadu mess foods
+  5. Suggest nutritious plate combinations with protein, fiber, and carbs
+  6. Always be empathetic, supportive, and health-conscious in your recommendations
+  
+  Context of available foods: ${context}
+  
+  Always provide practical suggestions from the mess inventory and encourage balanced eating habits. Be friendly and approachable like a caring nutritionist.
   `;
 
   const result = streamText({
